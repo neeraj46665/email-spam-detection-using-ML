@@ -86,9 +86,10 @@ Please make sure to discuss major changes before making them. For more details, 
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
 You are free to use, modify, and distribute this software. However, please include the original attribution and license in any copy of the software/source.
+
 
 
 
