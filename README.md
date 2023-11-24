@@ -40,7 +40,7 @@ Description or usage of the Multinomial Naive Bayes in your project.
     cd your-project
     ```
 
-3. **Create and activate a virtual environment (optional but recommended):**
+3. **Create and activate a virtual environment (optional):**
 
     ```bash
     python -m venv venv
