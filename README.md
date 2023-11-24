@@ -82,7 +82,6 @@ We welcome contributions from the community to improve this project! Here are a 
 - Ensure your code follows the project's coding style and conventions.
 - Submit a pull request describing your changes and why they're needed.
 
-Please make sure to discuss major changes before making them. For more details, refer to the [Contribution Guidelines](CONTRIBUTING.md).
 
 ## License
 
