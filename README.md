@@ -2,7 +2,12 @@
 
 ## Overview
 
-Brief description of your project.
+This project focuses on building a machine learning-based system to detect email spam. Email spam, also known as unsolicited bulk email, is a prevalent issue affecting communication channels. The goal of this project is to develop an efficient and accurate method to classify incoming emails as either spam or legitimate (ham).
+
+Utilizing various machine learning algorithms such as Random Forest Classifier, Support Vector Classifier, and Multinomial Naive Bayes, this system aims to analyze the content and attributes of emails to distinguish between spam and non-spam messages. By employing these algorithms, we aim to create a robust and effective solution for filtering unwanted emails while allowing genuine communication to reach users' inboxes.
+
+The project involves training these algorithms on labeled email datasets, fine-tuning them to achieve optimal performance, and implementing them within a user-friendly application or service. Ultimately, the objective is to provide users with a reliable tool that can significantly reduce the influx of unwanted and potentially harmful email content.
+
 
 ## Algorithms Used
 
