@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- {% load static %} -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'Spam/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Spam/css/style.css' %}">
+    <title>Spam Email Detecion </title>
+<style>
+    /* Define the shaky animation */
+    @keyframes shaky {
+
+        10%,
+        90% {
+            transform: translateX(-1px) rotate(-1deg);
+        }
+
+        20%,
+        80% {
+            transform: translateX(2px) rotate(2deg);
+        }
+
+        30%,
+        50%,
+        70% {
+            transform: translateX(-4px) rotate(-4deg);
+        }
+
+        40%,
+        60% {
+            transform: translateX(4px) rotate(4deg);
+        }
+
+        100% {
+            transform: translateX(0) rotate(0);
+        }
+    }
+
+    /* Apply the animation to the typo-content class */
+    .typo-content:hover {
+        animation: shaky 0.5s ease-in-out;
+    }
+</style>
+
+</head>
+
+<body>
+    <!-- Main Section Start -->
+    <section class="main">
+
+        
+        <div class="fluid-container content">
+            <div class="row m-auto">
+                <!-- Left side Text part start -->
+                <div class="col-md-6 p-5 m-auto typo-content">
+                    
+                    <h1 class="title">Email Spam Detection</h1>
+                    <BR></BR>
+                    <div class="text-box">
+                        <p class="text-content">
+                            This online platform allows text analysis to identify potential spam messages. Enter text in the textarea, select an
+                            algorithm, and press CHECK for results. 
+                        </p>
+                        <p style="color: black; font-size: 22px;">Note: Machine learning predictions aren't 100% accurate.</p>
+                        
+                    </div>
+                </div>
+                <!-- Left side Text part end -->
+
+                <!-- Form part start -->
+                <div class="col-md-6 p-5 m-auto form-content">
+                    <form method="post" action="check" class="main-form">
+                        {% csrf_token %}
+                        <textarea name="rawdata" placeholder="Enter Your Text Here..." id="rawdata"></textarea><br>
+                        <div class="algo-choice">
+                            <label class="radiocontainer">Algo - 1
+                                <input type="radio" name="algo" value="Algo-1">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="radiocontainer">Algo - 2
+                                <input type="radio" name="algo" value="Algo-2">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="radiocontainer">Algo - 3
+                                <input type="radio" name="algo" value="Algo-3">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="check-holder">
+                            <button type="submit" class="check-btn">Check</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- Form part end -->
+            </div>
+
+            <!-- Footer end -->
+        </div>
+        <!-- Main Content part end -->
+
+
+    </section>
+
+    <div class="info">
+        <div class="table">
+            <section class="algo-section">
+                <h2 style="color: black;">Algo 1 (94% accuracy)</h2>
+                <h2>Random Forest Classifier</h2>
+                
+                
+                <p>This scikit-learn pipeline uses TF-IDF to convert text into numerical features and a RandomForestClassifier to predict
+                outcomes based on these features.</p>
+                
+                
+            </section>
+        
+            <section class="algo-section">
+                <h2 style="color: black;">Algo 2 (95% accuracy)</h2>
+                <h2>Support Vector Classifier</h2>
+             
+                <p>This pipeline transforms text using TF-IDF and applies a Support Vector Classifier (SVC) with high penalty (C=1000) and
+                automatic gamma setting for predictions.</p>
+            </section>
+        
+            <section class="algo-section">
+                <h2 style="color: black;">Algo 3 (97% accuracy)</h2>
+                <h2>Multinomial Naive Bayes</h2>
+              
+                <p>This pipeline employs TF-IDF for text conversion and utilizes a Multinomial Naive Bayes classifier for making
+                predictions based on the transformed features.</p>
+            </section>
+
+            
+        </div>
+        
+    </div>
+
+    
+
+</body>
+
+</html>
