@@ -6,7 +6,7 @@ Brief description of your project.
 
 ## Algorithms Used
 
-### Random Forest Classifier
+### 1 Random Forest Classifier
 
 Description or usage of the Random Forest Classifier in your project.
 
