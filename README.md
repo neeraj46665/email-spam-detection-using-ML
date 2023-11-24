@@ -6,17 +6,14 @@ Brief description of your project.
 
 ## Algorithms Used
 
-### 1 Random Forest Classifier
+1. **Random Forest Classifier**
+   - Description or usage of the Random Forest Classifier in your project.
 
-Description or usage of the Random Forest Classifier in your project.
+2. **Support Vector Classifier**
+   - Description or usage of the Support Vector Classifier in your project.
 
-### Support Vector Classifier
-
-Description or usage of the Support Vector Classifier in your project.
-
-### Multinomial Naive Bayes
-
-Description or usage of the Multinomial Naive Bayes in your project.
+3. **Multinomial Naive Bayes**
+   - Description or usage of the Multinomial Naive Bayes in your project.
 
 ## Installation
 
@@ -82,13 +79,8 @@ We welcome contributions from the community to improve this project! Here are a 
 - Ensure your code follows the project's coding style and conventions.
 - Submit a pull request describing your changes and why they're needed.
 
-
 ## License
 
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
 You are free to use, modify, and distribute this software. However, please include the original attribution and license in any copy of the software/source.
-
-
-
-
