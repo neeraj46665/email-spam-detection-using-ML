@@ -37,8 +37,8 @@ def transform_text(text):
 
 tfidf = joblib.load(os.path.dirname(__file__) + "\\vectorizer.pkl",'rb')
 model = joblib.load(os.path.dirname(__file__) + "\\model.pkl",'rb')
-model1 = joblib.load(os.path.dirname(__file__) + "\\mySVCModel.pkl")
-model2 = joblib.load(os.path.dirname(__file__) + "\\myModel.pkl")
+model2 = joblib.load(os.path.dirname(__file__) + "\\mySVCModel.pkl")
+model1 = joblib.load(os.path.dirname(__file__) + "\\myModel.pkl")
 
 def index(request):
     return render(request, 'index.html')
