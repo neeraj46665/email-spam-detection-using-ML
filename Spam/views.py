@@ -51,7 +51,7 @@ def checkSpam(request):
         if not rawData.strip():
             param = {"answer": "No input"}
 
-        if algo == "Algo-1":
+        elif algo == "Algo-1":
             finalAns = model1.predict([rawData])[0]
             param = {"answer": finalAns}
         
