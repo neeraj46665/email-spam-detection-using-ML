@@ -48,6 +48,8 @@ def checkSpam(request):
         algo = request.POST.get("algo")
         rawData = request.POST.get('rawdata')
         param = {}
+        if not rawData.strip():
+            param = {"answer": "No input"}
 
         if algo == "Algo-1":
             finalAns = model1.predict([rawData])[0]
@@ -65,6 +67,8 @@ def checkSpam(request):
             result = model.predict(vector_input)[0]
             finalAns = "ham" if result == 0 else "Spam"
             param = {"answer": finalAns}
+        else:
+            param = {"answer": "No algorithm selected"}
             
 
         return render(request, 'output.html', param)
