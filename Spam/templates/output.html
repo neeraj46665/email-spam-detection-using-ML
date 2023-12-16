@@ -48,7 +48,19 @@
     <!-- Main Section Start -->
     <section class="AnswerSection">
         <p class="answer">
-            {% if answer == "ham" %} Not Spam {% else %} Spam {% endif %}
+                {% if answer == "No algorithm selected" %}
+                <p class="answer">No algorithm selected</p>
+                {% elif answer == "No input" %}
+                <p class="answer">No input</p>
+                {% else %}
+                <p class="answer">
+                    {% if answer == "ham" %}
+                    Not Spam
+                    {% else %}
+                    Spam
+                    {% endif %}
+                </p>
+                {% endif %}
         </p>
         <a href="/" class="backbtn">Back</a>
     </section>
