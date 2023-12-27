@@ -8,6 +8,7 @@ import string
 from nltk.corpus import stopwords
 import nltk
 from nltk.stem.porter import PorterStemmer
+from nltk.tokenize import word_tokenize 
 
 ps = PorterStemmer()
 
@@ -35,10 +36,28 @@ def transform_text(text):
 
     return " ".join(y)
 
-tfidf = joblib.load(os.path.dirname(__file__) + "\\vectorizer.pkl",'rb')
-model = joblib.load(os.path.dirname(__file__) + "\\model.pkl",'rb')
-model2 = joblib.load(os.path.dirname(__file__) + "\\mySVCModel.pkl")
-model1 = joblib.load(os.path.dirname(__file__) + "\\myModel.pkl")
+def preprocess_text(text):
+    # Apply your text preprocessing steps (lowercasing, tokenization, etc.)
+    text = text.lower()
+    text = word_tokenize(text)
+    text = [word for word in text if word not in stopwords.words('english') and word not in string.punctuation]
+    stemmer = PorterStemmer()
+    text = [stemmer.stem(word) for word in text]
+    return ' '.join(text)
+
+
+model2 = joblib.load(os.path.dirname(__file__) + "\\svc_model\\mySVCModel.pkl")
+model1 = joblib.load(os.path.dirname(__file__) + "\\random_forest\\myModel.pkl")
+
+model3 = joblib.load(os.path.dirname(__file__) + "\\bagging\\best_model.pkl")
+
+
+
+loaded_model = joblib.load(os.path.dirname(__file__) + '\\ada_boost\\adaboost_model_balanced.pkl')
+loaded_tfidf = joblib.load(os.path.dirname(__file__) + '\\ada_boost\\tfidf_vectorizer.pkl')
+
+loaded_model1 = joblib.load(os.path.dirname(__file__) + '\\nb_model\\best_model_nb.pkl')
+loaded_tfidf1 = joblib.load(os.path.dirname(__file__) + '\\nb_model\\tfidf_vectorizer_nb.pkl')
 
 def index(request):
     return render(request, 'index.html')
@@ -59,18 +78,24 @@ def checkSpam(request):
             finalAns = model2.predict([rawData])[0]
             param = {"answer": finalAns}
 
-        elif algo == "Algo-3":
-            # Here, it seems like you intended to use `rawData` instead of `finalAns`
-            
+        elif algo == "Algo-3":    
             transformed_sms = transform_text(rawData) 
-            vector_input = tfidf.transform([transformed_sms])
-            result = model.predict(vector_input)[0]
-            finalAns = "ham" if result == 0 else "Spam"
+            vector_input = loaded_tfidf1.transform([transformed_sms])
+            result = loaded_model1.predict(vector_input)
+            param = {"answer": result}
+
+        elif algo == "Algo-4":
+            finalAns = model3.predict([rawData])[0]
             param = {"answer": finalAns}
+
+        elif algo == "Algo-5":
+            processed_text = preprocess_text(rawData) 
+            text_vectorized = loaded_tfidf.transform([processed_text])
+            prediction = loaded_model.predict(text_vectorized)
+            param = {"answer": prediction}
+
         else:
             param = {"answer": "No algorithm selected"}
-            
-
         return render(request, 'output.html', param)
     else:
         return render(request, 'index.html')

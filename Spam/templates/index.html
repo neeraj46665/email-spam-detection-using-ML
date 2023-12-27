@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{% static 'Spam/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'Spam/css/style.css' %}">
+
     <title>Spam Email Detecion </title>
 <style>
     /* Define the shaky animation */
@@ -76,16 +77,24 @@
                         {% csrf_token %}
                         <textarea name="rawdata" placeholder="Enter Your Text Here..." id="rawdata"></textarea><br>
                         <div class="algo-choice">
-                            <label class="radiocontainer">Algo - 1
+                            <label class="radiocontainer">Random Forest 
                                 <input type="radio" name="algo" value="Algo-1">
                                 <span class="checkmark"></span>
                             </label>
-                            <label class="radiocontainer">Algo - 2
+                            <label class="radiocontainer">Support Vector 
                                 <input type="radio" name="algo" value="Algo-2">
                                 <span class="checkmark"></span>
                             </label>
-                            <label class="radiocontainer">Algo - 3
+                            <label class="radiocontainer"> Naive Bayes
                                 <input type="radio" name="algo" value="Algo-3">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="radiocontainer">Bagging 
+                                <input type="radio" name="algo" value="Algo-4">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="radiocontainer">AdaBoost
+                                <input type="radio" name="algo" value="Algo-5">
                                 <span class="checkmark"></span>
                             </label>
                         </div>
@@ -132,6 +141,24 @@
                 <p>This pipeline employs TF-IDF for text conversion and utilizes a Multinomial Naive Bayes classifier for making
                 predictions based on the transformed features.</p>
             </section>
+            <section class="algo-section">
+                <h2 style="color: black;">Algo 4 (97% accuracy)</h2>
+                <h2>Bagging Classifier</h2>
+            
+                <p>This scikit-learn pipeline uses TF-IDF to convert text into numerical features and a Bagging Classifier to
+                    predict outcomes based on these features.</p>
+            </section>
+
+            </section>
+            <section class="algo-section">
+                <h2 style="color: black;">Algo 5 (98% accuracy)</h2>
+                <h2>AdaBoost Classifier</h2>
+            
+                <p>This pipeline transforms text using TF-IDF and applies an AdaBoost Classifier with 100 estimators for
+                    predictions.</p>
+            </section>
+
+
 
             
         </div>
