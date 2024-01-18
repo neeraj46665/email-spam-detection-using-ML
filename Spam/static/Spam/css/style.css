@@ -328,7 +328,21 @@ header nav ul li a:hover {
 
 
 
+.info {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    background-image: linear-gradient(to top, #cd9cf2 0%, #f6f3ff 100%);
 
+}
 
 
 .table {
