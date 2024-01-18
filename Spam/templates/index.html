@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- {% load static %} -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'Spam/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Spam/css/style.css' %}">
+
+    <title>Spam Email Detecion </title>
+<style>
+.button-container {
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+  .content {
+        width: 100%;
+    }
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .typo-content, .form-content {
+        flex: 1 0 200px;
+        margin: 10px;
+    }
+    @media only screen and (max-width: 600px) {
+        .row {
+            flex-direction: column;
+        }
+        .typo-content, .form-content {
+            flex-basis: 100%;
+        }
+    }
+
+
+/*  */
+
+    .info {
+        width: 100%;
+    }
+    .table {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .algo-section {
+        flex: 1 0 200px;
+        margin: 10px;
+    }
+    @media only screen and (max-width: 600px) {
+        .table {
+            flex-direction: column;
+        }
+        .algo-section {
+            margin: 5px;
+            flex-basis: 100%;
+        }
+    }
+
+        @media only screen and (max-width: 576px) {
+            /* Adjust the layout for smaller screens */
+            .col-md-6 {
+                width: 100%;
+                box-sizing: border-box;
+                margin: 0;
+            }
+
+            .form-content,
+            .algo-section {
+                padding: 20px;
+            }
+
+            .text-box {
+                text-align: center;
+            }
+
+            .text-content {
+                font-size: 14px;
+            }
+        }
+    @keyframes shaky {
+
+        10%,
+        90% {
+            transform: translateX(-1px) rotate(-1deg);
+        }
+
+        20%,
+        80% {
+            transform: translateX(2px) rotate(2deg);
+        }
+
+        30%,
+        50%,
+        70% {
+            transform: translateX(-4px) rotate(-4deg);
+        }
+
+        40%,
+        60% {
+            transform: translateX(4px) rotate(4deg);
+        }
+
+        100% {
+            transform: translateX(0) rotate(0);
+        }
+    }
+
+    /* Apply the animation to the typo-content class */
+    .typo-content:hover {
+        animation: shaky 0.5s ease-in-out;
+    }
+    .nav{
+        padding-left: 5%;
+         padding-right: 5%;
+    }
+    .nav a {
+            text-decoration: none; /* Remove underline */
+            color: #f68084; /* Set link color */
+            font-weight: bold; /* Set font weight */
+            padding: 8px 12px; /* Add padding for better touch interaction */
+            border-radius: 4px; /* Add border radius for a button-like appearance */
+            background-color: #F8F9FA; /* Add background color */
+            margin-right: 10px; /* Add margin between links */
+            transition: background-color 0.3s ease; /* Add a smooth transition for hover effect */
+        }
+
+        .nav a:hover {
+            background-color: #f68084; /* Change background color on hover */
+            color: #FFFFFF; /* Change text color on hover */
+        }
+        .nav h2{
+            color: black;
+    
+        }
+        .nav h2:hover{
+            color: #f68084;
+    
+        }
+</style>
+
+</head>
+
+<body>
+    <!-- Main Section Start -->
+    <section class="algo-section" style="text-align: center; width: 100vw; margin: 0; display: flex; justify-content: space-between;">
+        <div class="nav">
+            <h2 style=" margin-right:20px ;">Neeraj Singh</h2>
+            <h2 style=" margin-right:20px ;">Faisal Hussian</h2>
+            <h2 style=" margin-right:20px ;">Gaurav Kumar</h2>
+        </div>
+        <div class="nav" ;">
+            <a href="https://github.com/neeraj46665/email-spam-detection-using-ML.git" target="_blank"  style="list-style: none;">Github</a>
+        </div>
+    </section>
+    <section class="main">
+
+        
+        <div class="fluid-container content">
+            <div class="row m-auto">
+                <!-- Left side Text part start -->
+                <div class="col-md-6 p-5 m-auto typo-content">
+                    
+                    <h1 class="title">Email Spam Detection</h1>
+                    <BR></BR>
+                    <div class="text-box">
+                        <p class="text-content">
+                            This online platform allows text analysis to identify potential spam messages. Enter text in the textarea, select an
+                            algorithm, and press CHECK for results. 
+                        </p>
+                        <p style="color: black; font-size: 22px;">Note: Machine learning predictions aren't 100% accurate.</p>
+                        
+                    </div>
+                </div>
+                <!-- Left side Text part end -->
+
+                <!-- Form part start -->
+                <div class="col-md-6 p-5 m-auto form-content">
+                    <form method="post" action="check" class="main-form">
+                        {% csrf_token %}
+                        <textarea name="rawdata" placeholder="Enter Your Text Here..." id="rawdata"></textarea><br>
+                        <div class="algo-choice">
+                            <label class="radiocontainer">Random Forest 
+                                <input type="radio" name="algo" value="Algo-1">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="radiocontainer">SVM 
+                                <input type="radio" name="algo" value="Algo-2">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="radiocontainer"> Naive Bayes
+                                <input type="radio" name="algo" value="Algo-3">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="radiocontainer">Bagging 
+                                <input type="radio" name="algo" value="Algo-4">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="radiocontainer">AdaBoost
+                                <input type="radio" name="algo" value="Algo-5">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    <div class="button-container">
+                        <div class="check-holder">
+                            <button type="submit" formaction="{% url 'checkSpam' %}" class="check-btn">Check</button>
+                        </div>
+                        <div class="check-holder">
+                            <button type="submit" formaction="{% url 'predictEmailType' %}" class="check-btn">CheckALL</button>
+                        </div>
+                    </div>
+
+                    </form>
+                </div>
+                
+                <!-- Form part end -->
+            </div>
+
+            <!-- Footer end -->
+        </div>
+        <!-- Main Content part end -->
+
+
+    </section>
+
+    <div class="info" style="margin: 0;">
+        <div class="table">
+            <section class="algo-section">
+                <!-- <h2 style="color: black;">Algo 1 (94% accuracy)</h2> -->
+                <h2>Random Forest Classifier</h2>
+                
+                
+                <p>This smart tool uses text information to make predictions. It's like a super-smart assistant that learns from examples
+                to guess outcomes with 94% accuracy.</p>
+                
+                
+            </section>
+        
+            <section class="algo-section">
+                <!-- <h2 style="color: black;">Algo 2 (95% accuracy)</h2> -->
+                <h2>Support Vector Classifier</h2>
+             
+                <p>This one also uses text, but it's like a detective with a 95% success rate. It learns from past cases to make good
+                guesses about new ones.</p>
+            </section>
+        
+            <section class="algo-section">
+                <!-- <h2 style="color: black;">Algo 3 (97% accuracy)</h2> -->
+                <h2>Multinomial Naive Bayes</h2>
+              
+                <p>This algorithm is a bit like a fortune teller for text. It looks at patterns in the words and guesses outcomes with an
+                impressive 97% accuracy.</p>
+            </section>
+            <section class="algo-section">
+                <!-- <h2 style="color: black;">Algo 4 (97% accuracy)</h2> -->
+                <h2>Bagging Classifier</h2>
+            
+                <p>Imagine this as a team of experts voting on an answer. They use information from the text and, together, they predict
+                outcomes with a solid 97% accuracy.</p>
+            </section>
+
+            </section>
+            <section class="algo-section">
+                <!-- <h2 style="color: black;">Algo 5 (98% accuracy)</h2> -->
+                <h2>AdaBoost Classifier</h2>
+            
+                <p>AdaBoost is like a coach training a team to get better and better at making predictions from text, and they're really
+                good at it with a 98% success rate.</p>
+            </section>
+
+
+
+            
+        </div>
+        
+    </div>
+    <!-- <section class="algo-section" style="text-align: center; width: 100vw; margin: 0;">
+        <h2 style="color: black;">Neeraj Singh, Faisal Hussian, Gaurav Kumar</h2>
+    </section> -->
+    
+
+</body>
+
+</html>

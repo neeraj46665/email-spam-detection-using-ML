@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .AnswerSection {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            min-height: 100vh;
+            background-image: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
+            font-family: Arial, sans-serif;
+    }
+        .AnswerSection .answer {
+            color: white;
+            font-size: 5rem;
+            text-align: center;
+        }
+
+        .backbtn,
+        .backbtn:hover {
+            padding: 0em 1em;
+            color: #fff;
+            font-size: 3rem;
+            text-decoration: none;
+            border: 5px #fff solid;
+            border-radius: 0.2em;
+
+        }
+    </style>
+
+    <title>Answer</title>
+</head>
+
+<body>
+    <!-- Main Section Start -->
+    <section class="AnswerSection">
+        <p class="answer">
+                {% if answer == "No algorithm selected" %}
+                <p class="answer">No algorithm selected</p>
+                {% elif answer == "No input" %}
+                <p class="answer">No input</p>
+                {% else %}
+                <p class="answer">
+                    {% if answer == "ham" %}
+                    Not Spam
+                    {% else %}
+                    Spam
+                    {% endif %}
+                </p>
+                {% endif %}
+        </p>
+        <a href="/" class="backbtn">Back</a>
+    </section>
+  
+</body>
+
+</html>

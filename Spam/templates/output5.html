@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #282828;
+            /* Dark background for the body */
+            color: #f8f8f8;
+            /* Light text color */
+        }
+
+        .AnswerSection {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        .AnswerSection.Ham {
+            background-image: linear-gradient(120deg, #a6c0fe 0%, #B2DDFF 100%);
+            
+        }
+
+        .AnswerSection.Spam {
+            background-image: linear-gradient(120deg, #f68084 0%, #FFAFAF 100%);
+            animation: sad ;
+        }
+        @keyframes pop {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+        100% { transform: scale(1); }
+    }
+
+    .emoji {
+        font-size: 50px;
+        animation: pop 1s infinite;
+    }
+
+        
+
+        .emoji.pop {
+            transform: scale(1.2);
+        }
+
+        .AnswerSection .answer {
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .backbtn,
+        .backbtn:hover {
+            padding: 0em 1em;
+            color: #f8f8f8;
+            /* Light text color */
+            font-size: 3rem;
+            text-decoration: none;
+            border: 5px #fff solid;
+            border-radius: 0.2em;
+        }
+    </style>
+
+    <title>Answer</title>
+</head>
+
+<body>
+
+    <section class="AnswerSection {% if prediction == 'Ham' %}Ham{% elif prediction == 'Spam' %}Spam{% endif %}">
+        {% if answer == "No algorithm selected" %}
+        <p class="answer">No algorithm selected</p>
+        {% elif answer == "No input" %}
+        <p class="answer">No input</p>
+        {% else %}
+        <p class="answer">
+            {{ answer|safe }}
+        </p>
+        {% if prediction == 'Ham' %}
+        <p class="emoji">🎉</p>
+        {% elif prediction == 'Spam' %}
+        <p class="emoji">😢</p>
+        {% endif %}
+        {% endif %}
+        <!-- Rest of your HTML -->
+        <a href="/" class="backbtn">Back</a>
+    </section>
+
+
+    <script>
+        setTimeout(function () {
+            var emojis = document.querySelectorAll('.emoji');
+            for (var i = 0; i < emojis.length; i++) {
+                emojis[i].classList.remove('pop');
+            }
+        }, 500);
+    </script>
+
+</body>
+
+</html>

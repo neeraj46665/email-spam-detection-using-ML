@@ -1,0 +1,378 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.main{
+    width: 100%;
+    min-height: 100vh;
+    background-image: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
+    font-family: Arial, sans-serif;
+
+
+}
+header {
+    width: 100%;
+    height: 3.5em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+header nav {
+    height: 3.5em;
+    margin-right: 2em;
+    display: flex;
+    justify-content: space-between;
+}
+
+header nav .brand {
+    font-size: 2.3rem;
+    color: #fff;
+    font-family: Jonesy;
+    text-decoration: none;
+    padding: 0 0 0 2rem;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li a {
+    display: block;
+    padding: 0.6em 1em;
+    text-decoration: none !important;
+    color: gray !important;
+    font-size: 1.3rem;
+    font-family: Azonix;
+    transition: 0.3s color;
+}
+
+header nav ul li a:hover {
+    color: #fff !important;
+}
+
+
+.active {
+    color: #fff !important;
+}
+
+.content {
+    padding: 0 2em;
+    padding-top: 3.5em;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+
+
+.main-form textarea {
+    width: 100%;
+    background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+    outline: none;
+    border: 2px white solid;
+    border-radius: 0.3em;
+    position: relative;
+    height: 10em;
+    margin-bottom: 0.5em;
+    resize: none;
+    padding: 0.5em;
+    /* color: #fff; */
+    color: black;
+   
+    font-size: 1.3rem;
+        transition: transform 0.3s ease-in-out;
+}
+
+.main-form textarea:hover {
+    transform: scale(1.05);
+    /* Enlarge on hover */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    /* Add shadow */
+}
+
+.content h1 {
+    color: #fff;
+   
+    margin: 0;
+    padding: 0;
+}
+
+.content h5 {
+    margin-top: 0;
+    padding-top: 0;
+    color: #fff;
+    
+}
+
+.content p {
+    color: #fff;
+  
+    font-size: 1.7rem;
+    line-height: 1.7rem;
+}
+
+.check-holder {
+    display: flex;
+    justify-content: center;
+    padding-top: 2em;
+}
+
+.check-btn {
+    padding: 0.4em 4em;
+    border: none;
+    border-radius: 0.3em;
+    background: #fff;
+    
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+}
+
+.footer p {
+    font-size: 1.2rem;
+  
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+/* ANswer Page Style Starts*/
+
+.AnswerSection {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.AnswerSection .answer {
+    color: white;
+    font-size: 5rem;
+    text-align: center;
+}
+
+.backbtn,
+.backbtn:hover {
+    padding: 0em 1em;
+    color: #fff;
+    font-size: 3rem;
+    text-decoration: none;
+    border: 5px #fff solid;
+    border-radius: 0.2em;
+
+}
+
+
+
+
+.check-btn:hover,
+.check-btn:active {
+    transform: scale(0.95);
+    /* Reduces the size to 95% of its original */
+    transition: transform 0.2s ease;
+    /* Adds a smooth transition effect */
+   
+    background-color: rgb(92, 248, 92);
+}
+
+
+
+
+.algo-choice {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.radiocontainer {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    line-height: 1em;
+    max-width: 10em;
+    font-size: 22px;
+    color: #fff;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radiocontainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #fff;
+    
+    border-radius: 10%;
+}
+
+/* On mouse-over, add a grey background color */
+.radiocontainer:hover input~.checkmark {
+
+    background-color: rgb(92, 248, 92);
+}
+
+/* When the radio button is checked, add a blue background */
+.radiocontainer input:checked~.checkmark {
+    background-color: gray;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radiocontainer input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radiocontainer .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+/* ANswer Page Style Ends*/
+
+
+@media only screen and (max-width: 768px) {
+    .form-content {
+        padding-top: 0;
+    }
+
+    .main-form {
+        margin-bottom: 2em;
+    }
+
+    .typo-content {
+        padding-bottom: 0 !important;
+    }
+}
+
+@media only screen and (max-width: 410px) {
+
+    header nav {
+        margin-right: 1em;
+    }
+
+    header nav ul li a {
+        padding: 1em 0.4em;
+        font-size: 1rem;
+    }
+}
+
+
+.content {
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.typo-content,
+.form-content {
+    flex: 1 0 200px;
+    margin: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    .row {
+        flex-direction: column;
+    }
+
+    .typo-content,
+    .form-content {
+        flex-basis: 100%;
+    }
+}
+
+
+
+
+
+
+.table {
+
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 1200px;
+
+}
+
+.algo-section {
+    width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 0 10px;
+    background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+    transition: transform 0.3s ease-in-out;
+  
+                       
+}
+.algo-spacing {
+    margin: 20px;
+    /* Adjust this value to set the desired space */
+}
+.algo-section:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    
+}
+.algo-section h2 {
+    color: rgb(192, 104, 233);
+    font-size: 22px;
+}
+
+
+.algo-section p {
+    color: #666;
+}
+
+
+
+
+
