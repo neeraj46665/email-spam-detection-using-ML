@@ -71,9 +71,9 @@ The project involves training these algorithms on labeled email datasets, fine-t
 
 ## Usage
 
-(![image](https://github.com/neeraj46665/email-spam-detection-using-ML/assets/100067646/4752e624-6103-4f1d-857d-cc1d8931e6d8)
+![image](https://github.com/neeraj46665/email-spam-detection-using-ML/assets/100067646/4752e624-6103-4f1d-857d-cc1d8931e6d8)
 
-(![image](https://github.com/neeraj46665/email-spam-detection-using-ML/assets/100067646/e0503f94-e4f5-4116-a6c4-c990d582df5f)
+![image](https://github.com/neeraj46665/email-spam-detection-using-ML/assets/100067646/e0503f94-e4f5-4116-a6c4-c990d582df5f)
 
 
 ## Contributing
